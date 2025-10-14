@@ -173,3 +173,4 @@ D:\Thực tập\Dự án 2\PR\Du_An_Web_Ban_Khoa_Hoc\Du_An_Web_Ban_Khoa_Hoc\obj\
 D:\Thực tập\Dự án 2\PR\Du_An_Web_Ban_Khoa_Hoc\Du_An_Web_Ban_Khoa_Hoc\obj\Debug\net8.0\Du_An_Web_Ban_Khoa_Hoc.pdb
 D:\Thực tập\Dự án 2\PR\Du_An_Web_Ban_Khoa_Hoc\Du_An_Web_Ban_Khoa_Hoc\obj\Debug\net8.0\Du_An_Web_Ban_Khoa_Hoc.genruntimeconfig.cache
 D:\Thực tập\Dự án 2\PR\Du_An_Web_Ban_Khoa_Hoc\Du_An_Web_Ban_Khoa_Hoc\obj\Debug\net8.0\ref\Du_An_Web_Ban_Khoa_Hoc.dll
+D:\Thực tập\Dự án 2\PR\Du_An_Web_Ban_Khoa_Hoc\Du_An_Web_Ban_Khoa_Hoc\obj\Debug\net8.0\Du_An_Web_Ban_Khoa_Hoc.sourcelink.json

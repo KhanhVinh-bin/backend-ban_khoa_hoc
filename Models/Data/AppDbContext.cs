@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Du_An_Web_Ban_Khoa_Hoc.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Du_An_Web_Ban_Khoa_Hoc.Models.Data;

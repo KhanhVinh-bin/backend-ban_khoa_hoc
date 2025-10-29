@@ -311,7 +311,8 @@ namespace Du_An_Web_Ban_Khoa_Hoc.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
-                        .HasDefaultValue("vi");
+                        .HasDefaultValue("vi")
+                        .HasColumnName("CourseLanguage");
 
                     b.Property<string>("LearningOutcomes")
                         .HasColumnType("nvarchar(max)");
@@ -321,7 +322,8 @@ namespace Du_An_Web_Ban_Khoa_Hoc.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
-                        .HasDefaultValue("beginner");
+                        .HasDefaultValue("beginner")
+                        .HasColumnName("CourseLevel");
 
                     b.Property<string>("Prerequisites")
                         .HasColumnType("nvarchar(max)");
@@ -1341,8 +1343,8 @@ namespace Du_An_Web_Ban_Khoa_Hoc.Migrations
                         .HasColumnType("datetime2(3)")
                         .HasDefaultValueSql("(sysutcdatetime())");
 
-                    b.Property<DateTime?>("DateOfBirth")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly?>("DateOfBirth")
+                        .HasColumnType("date");
 
                     b.Property<string>("Email")
                         .IsRequired()

@@ -1,0 +1,869 @@
+[
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/Post/login/Dang_Nhap",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Du_An_Web_Ban_Khoa_Hoc.Models.DTO.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.AuthController",
+    "Method": "RegisterInstructor",
+    "RelativePath": "api/Auth/register/instructor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Du_An_Web_Ban_Khoa_Hoc.Models.DTO.RegisterDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.CoursesController",
+    "Method": "DeleteCourse",
+    "RelativePath": "api/Courses/courses/{courseId}/delete/Xoa_khoa_hoc",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.CoursesController",
+    "Method": "GetMyCourses",
+    "RelativePath": "api/Courses/Get/my-courses/coursesAll/Thong_Tin_Nhieu_Khoa_Hoc",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.CoursesController",
+    "Method": "CreateOrUpdateCourseStep",
+    "RelativePath": "api/Courses/Post/CreateOrUpdateCourseStep/Tao_Khoa_hoc_4_buoc",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Du_An_Web_Ban_Khoa_Hoc.Models.DTO.Create_Course",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.CoursesController",
+    "Method": "PublishDraftCourse",
+    "RelativePath": "api/Courses/Post/publish/Tao_Khoa_hoc_o_trang_thai_Cho_Duyet/Pending",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Du_An_Web_Ban_Khoa_Hoc.Models.DTO.PublishCourseRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorsController",
+    "Method": "GetMyProfile",
+    "RelativePath": "api/Instructors/Get/Instructors/Lay_ho_so_Giang_vien",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorsController",
+    "Method": "PatchInstructor",
+    "RelativePath": "api/Instructors/Patch/instructor/Update_1_phan_Thong_Tin_Giang_Vien",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Du_An_Web_Ban_Khoa_Hoc.Models.DTO.UpdateI_Profile_Instructor",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorsController",
+    "Method": "PutALLProfileInstructors",
+    "RelativePath": "api/Instructors/Put/Instructor/Chinh_sua_toan_bo_ho_s\u01A1_Giang_Vien",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Du_An_Web_Ban_Khoa_Hoc.Models.DTO.UpdateI_Profile_Instructor",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorSaleRevenueController",
+    "Method": "GetBankAccounts",
+    "RelativePath": "api/InstructorSaleRevenue/Get/accounts/Lay_danh_sach_rut_tien",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorSaleRevenueController",
+    "Method": "GetAvailableBalance",
+    "RelativePath": "api/InstructorSaleRevenue/Get/available-balance/So_du_kha_dung",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorSaleRevenueController",
+    "Method": "GetRevenueChart",
+    "RelativePath": "api/InstructorSaleRevenue/Get/chart/Bieu_do_doanh_thu_trong_6_thang_gan_nhat",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorSaleRevenueController",
+    "Method": "GetCurrentMonthRevenue",
+    "RelativePath": "api/InstructorSaleRevenue/Get/current-month/Doanh_thu_theo_thang",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorSaleRevenueController",
+    "Method": "ExportPayoutsToExcel",
+    "RelativePath": "api/InstructorSaleRevenue/Get/export/Xuat_Excel_Lich_su_rut_tien",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FromDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ToDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "MinAmount",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "MaxAmount",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorSaleRevenueController",
+    "Method": "GetPayoutHistory",
+    "RelativePath": "api/InstructorSaleRevenue/Get/history/Lich_su_rut_tien",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorSaleRevenueController",
+    "Method": "GetBalance",
+    "RelativePath": "api/InstructorSaleRevenue/Get/Order/So_du_kha_dung_cua_Giang_vien",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Du_An_Web_Ban_Khoa_Hoc.Models.DTO.InstructorBalanceDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorSaleRevenueController",
+    "Method": "GetPendingBalance",
+    "RelativePath": "api/InstructorSaleRevenue/Get/pending-balance/So_du_dang_cho_xu_ly",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorSaleRevenueController",
+    "Method": "AddBankAccount",
+    "RelativePath": "api/InstructorSaleRevenue/Post/accounts/Them_tai_khoan_ngan_hang_moi",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "Du_An_Web_Ban_Khoa_Hoc.Models.DTO.AddBankAccountRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorSaleRevenueController",
+    "Method": "FilterPayouts",
+    "RelativePath": "api/InstructorSaleRevenue/Post/filter/Bo_loc_cua_lich_su_rut_tien",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "Du_An_Web_Ban_Khoa_Hoc.Models.DTO.Bo_loc_History_Rut_tien",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorSaleRevenueController",
+    "Method": "CreatePayout",
+    "RelativePath": "api/InstructorSaleRevenue/Post/request/Form_yeu_cau_rut_tien",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "Du_An_Web_Ban_Khoa_Hoc.Models.DTO.CreatePayoutRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorSaleRevenueController",
+    "Method": "GetRevenueSummary",
+    "RelativePath": "api/InstructorSaleRevenue/summary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorTongQuatController",
+    "Method": "GetCompletionRate",
+    "RelativePath": "api/InstructorTongQuat/completion-rate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorTongQuatController",
+    "Method": "GetMonthlyRevenue",
+    "RelativePath": "api/InstructorTongQuat/Get/monthly-revenue",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorTongQuatController",
+    "Method": "GetRecentActivities",
+    "RelativePath": "api/InstructorTongQuat/recent-activities",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorTongQuatController",
+    "Method": "GetRecentCourses",
+    "RelativePath": "api/InstructorTongQuat/recent-courses",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorTongQuatController",
+    "Method": "GetTotalCourses",
+    "RelativePath": "api/InstructorTongQuat/total-courses",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.InstructorTongQuatController",
+    "Method": "GetTotalStudents",
+    "RelativePath": "api/InstructorTongQuat/total-students",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.LessonController",
+    "Method": "DeleteAllLessons",
+    "RelativePath": "api/Lesson/courses/{courseId}/lessons/all/Xoa_toan_bo_bai_hoc",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.LessonController",
+    "Method": "GetLessonsAvgCompletionRate",
+    "RelativePath": "api/Lesson/courses/{courseId}/lessons/avg-completion-rate/Ty_le_hoan_thanh_trung_binh",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.LessonController",
+    "Method": "GetLessonCompletionRate",
+    "RelativePath": "api/Lesson/courses/{courseId}/lessons/completion-rate/Tong_hoc_vien_va_ty_le_hoan_thanh_trung_binh",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.LessonController",
+    "Method": "GetLessonProgressCounts",
+    "RelativePath": "api/Lesson/courses/{courseId}/lessons/progress-count/Lay_tung_hoc_vien_da_hoan_thanh_bai_hoc",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.LessonController",
+    "Method": "GetLessonsProgressSummary",
+    "RelativePath": "api/Lesson/courses/{courseId}/lessons/progress-summary/Tong_so_luot_xem_va_luot_hoan_thanh",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.LessonController",
+    "Method": "GetTopViewedLessons",
+    "RelativePath": "api/Lesson/courses/{courseId}/lessons/top-viewed/Top_3_bai_hoc_duoc_xem_nhieu_nhat",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "top",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.LessonController",
+    "Method": "DeleteLesson",
+    "RelativePath": "api/Lesson/Delete/{courseId}/lessons/{lessonId}/Xoa_1_bai_hoc",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "lessonId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.LessonController",
+    "Method": "GetCourseLessons",
+    "RelativePath": "api/Lesson/Get/{courseId}/lessons/Lay_danh_sach_tieu_de_cac_bai_hoc_cua_1_khoa_hoc",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.LessonController",
+    "Method": "GetLessonProgressSummary",
+    "RelativePath": "api/Lesson/Get/{courseId}/Thong_tin_tien_do_bai_hoc",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.LessonController",
+    "Method": "GetLessons",
+    "RelativePath": "api/Lesson/Get/courses/{courseId}/lessons/Danh_sach_bai_hoc_theo_khoa_hoc",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.LessonController",
+    "Method": "PatchLesson",
+    "RelativePath": "api/Lesson/Patch/{courseId}/{lessonId}/Cap_nhap_tung_phan_bai_hoc",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "lessonId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Du_An_Web_Ban_Khoa_Hoc.Models.DTO.LessonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.LessonController",
+    "Method": "UploadFile",
+    "RelativePath": "api/Lesson/Post/{courseId}/lessons/{lessonId}/upload_File_cho_bai_hoc",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "lessonId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.LessonController",
+    "Method": "CreateLesson",
+    "RelativePath": "api/Lesson/Post/courses/{courseId}/lessons/Tao_bai_hoc_moi",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Du_An_Web_Ban_Khoa_Hoc.Models.DTO.LessonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.LessonController",
+    "Method": "UpdateLessonPut",
+    "RelativePath": "api/Lesson/Put/{courseId}/{lessonId}/Cap_nhap_bai_hoc",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "lessonId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Du_An_Web_Ban_Khoa_Hoc.Models.DTO.LessonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.LessonController",
+    "Method": "UpdateCourse",
+    "RelativePath": "api/Lesson/update/{courseId}/Cap_nhap_bai_hoc_Cai_Dat",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Du_An_Web_Ban_Khoa_Hoc.Models.DTO.Patch_lesson_DTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.ReviewController",
+    "Method": "GetInstructorRatingSummary",
+    "RelativePath": "api/Review/Get/my-courses/reviews/rating-summary/Thong_ke_Diem_danh_gia",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.ReviewController",
+    "Method": "SearchInstructorReviews",
+    "RelativePath": "api/Review/Get/my-courses/reviews/search/Tim_kiem_theo_bo_loc",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseTitle",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "keyword",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "rating",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.ReviewController",
+    "Method": "GetAllStudentReviews",
+    "RelativePath": "api/Review/Get/reviews/all/Lay_toan_bo_danh_sach_danh_gia",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.ReviewController",
+    "Method": "GetInstructorReviewSummary",
+    "RelativePath": "api/Review/Get/reviews/summary/Thong_tin_tong_quat",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.ReviewController",
+    "Method": "AutoReplyReview",
+    "RelativePath": "api/Review/reviews/{reviewId}/auto-reply",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reviewId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.SettingController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/Setting/Put/change-password/Thay_doi_mat_khau",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "Du_An_Web_Ban_Khoa_Hoc.Models.DTO.ChangePassword",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.StudentsController",
+    "Method": "GetStudentsOfMyCourses",
+    "RelativePath": "api/Students/Get/instructor/Lay_danh_sach_hoc_vien_da_dang_ky",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.StudentsController",
+    "Method": "GetStudentsByInstructor",
+    "RelativePath": "api/Students/Get/instructor/students/search/Tim_kiem_co_bo_loc",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EnrollDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FullName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsCompleted",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.SupportCenterController",
+    "Method": "SendSupportMessage",
+    "RelativePath": "api/SupportCenter/Post/send/Giang_vien_gui_yeu_cau_ho_tro_den_admin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "Du_An_Web_Ban_Khoa_Hoc.Models.DTO.SupportMessage",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Du_An_Web_Ban_Khoa_Hoc.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Du_An_Web_Ban_Khoa_Hoc.WeatherForecast, Du_An_Web_Ban_Khoa_Hoc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

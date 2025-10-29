@@ -8,9 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using Du_An_Web_Ban_Khoa_Hoc.Models;
 using Du_An_Web_Ban_Khoa_Hoc.Models.Data;
 using Du_An_Web_Ban_Khoa_Hoc.Models.DTO;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Du_An_Web_Ban_Khoa_Hoc.Controllers
 {
+    [Authorize(Roles = "instructor")]
     [Route("api/[Controller]")]
     [ApiController]
     public class StudentsController : Controller
@@ -22,34 +25,50 @@ namespace Du_An_Web_Ban_Khoa_Hoc.Controllers
             _context = context;
         }
 
-        //Get: Student/Course/{CourseID}/Enrollment 
+        //Get: Student/CourseEnrollment 
         //Get: Lấy danh sách học viên đăng ký ( 1 khóa học gồm nhiều học viên )
-        // CourseId -> User  
-        [HttpGet("Get/Course/{courseId}/Lay_danh_sach_hoc_vien_đang_ky")]
-        public async Task<IActionResult> GetStudentbyCourse(int courseId)
+        [Authorize(Roles = "instructor")]
+        [HttpGet("Get/instructor/Lay_danh_sach_hoc_vien_da_dang_ky")]
+        public async Task<IActionResult> GetStudentsOfMyCourses()
         {
-            var students = await _context.Enrollments 
-            .Where(e => e.CourseId == courseId)
-            .Select(e => new
-            {
-                e.UserId,
-                FullName = e.User.FullName,
-                Email = e.User.Email,
-                PhoneNumber = e.User.PhoneNumber,
-                EnrollmentDate = e.EnrollDate,
-                EnrollmentStatus = e.Status,
-                LastActive = e.User.Student.LastActive,
-                Progress = e.Progresses.Select(p => new
+            var idClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (!int.TryParse(idClaim, out var userId)) return Unauthorized();
+
+            // Lấy InstructorId từ JWT token
+            var instructorClaim = User.FindFirst("InstructorId")?.Value;
+            if (!int.TryParse(instructorClaim, out int instructorId))
+                return Unauthorized("InstructorId không hợp lệ");
+
+            // Lấy danh sách các khóa học của giảng viên này
+            var myCourses = await _context.Courses
+                .Where(c => c.InstructorId == instructorId)
+                .ToListAsync();
+
+            if (!myCourses.Any())
+                return NotFound("Bạn chưa có khóa học nào.");
+
+            var courseIds = myCourses.Select(c => c.CourseId).ToList();
+
+            // Lấy danh sách học viên đã đăng ký các khóa học này
+            var students = await _context.Enrollments
+                .Where(e => courseIds.Contains(e.CourseId))
+                .Select(e => new
                 {
-                    LessonTitle = p.Lesson.Title,
-                    IsCompleted = p.IsCompleted,
-                    CompletedAt = p.CompletedAt
-                }).ToList()
-        })
-        .ToListAsync();
+                    FullName = e.User.FullName,
+                    Email = e.User.Email,
+                    CourseTitle = e.Course.Title,
+                    EnrollmentDate = e.EnrollDate,
+                    ProgressPercent = e.Progresses.Any()
+                        ? (int)(100 * e.Progresses.Count(p => p.IsCompleted) / (double)e.Course.Lessons.Count)
+                        : 0,
+                    LastActive = e.User.Student.LastActive,
+                    EnrollmentStatus = e.Status
+                })
+                .ToListAsync();
 
             return Ok(students);
         }
+
 
         ////Get: api/courses/{courseId}/students
         ////Get: Lấy các khóa học mà học viên đã tham gia ( 1 học viên đăng ký nhiều khóa học )
@@ -100,96 +119,113 @@ namespace Du_An_Web_Ban_Khoa_Hoc.Controllers
         //}
 
 
-        //Get: Search + Page + Tính % Progress(tiến độ)
         //Search có bộ lọc 
-        [HttpGet("Student/Progress/Enrollment/Search_co_bo_loc")]
-        public async Task<ActionResult<ResponsePageResult<object>>> GetStudents([FromQuery] StudentFilterQuery query)
+        // Get: Search + Tính % Progress (tiến độ)
+        // Search có bộ lọc, không phân trang
+        [Authorize(Roles = "instructor")]
+        [HttpGet("Get/instructor/students/search/Tim_kiem_co_bo_loc")]
+        public async Task<ActionResult<IEnumerable<object>>> GetStudentsByInstructor([FromQuery] StudentFilterQuery query)
         {
-            var students = _context.Enrollments
+            //  Lấy InstructorId từ JWT token
+            var instructorClaim = User.FindFirst("InstructorId")?.Value;
+            if (!int.TryParse(instructorClaim, out int instructorId))
+                return Unauthorized();
+
+            // Lấy danh sách khóa học của giảng viên
+            var myCourses = await _context.Courses
+                .Where(c => c.InstructorId == instructorId)
+                .Select(c => new { c.CourseId, c.Title })
+                .ToListAsync();
+
+            if (!myCourses.Any())
+                return Ok(new List<object>()); // Không có khóa học, trả về danh sách rỗng
+
+            var myCourseIds = myCourses.Select(c => c.CourseId).ToList();
+
+            // Lấy danh sách Enrollment trong các khóa học đó
+            var enrollments = _context.Enrollments
                 .Include(e => e.User)
                 .Include(e => e.Course)
+                .Include(e => e.Progresses)
+                .Where(e => myCourseIds.Contains(e.CourseId))
                 .AsQueryable();
 
             // Filter
             if (query.EnrollDate.HasValue)
-                students = students.Where(s => s.EnrollDate.Date == query.EnrollDate.Value.Date);
+                enrollments = enrollments.Where(s => s.EnrollDate.Date == query.EnrollDate.Value.Date);
 
             if (!string.IsNullOrEmpty(query.Status))
-                students = students.Where(s => s.Status == query.Status);
+                enrollments = enrollments.Where(s => s.Status.Contains(query.Status));
 
             if (!string.IsNullOrEmpty(query.FullName))
-                students = students.Where(s => s.User.FullName.Contains(query.FullName));
+                enrollments = enrollments.Where(s => s.User.FullName.Contains(query.FullName));
 
             if (!string.IsNullOrEmpty(query.Email))
-                students = students.Where(s => s.User.Email.Contains(query.Email));
+                enrollments = enrollments.Where(s => s.User.Email.Contains(query.Email));
 
             if (!string.IsNullOrEmpty(query.Title))
-                students = students.Where(s => s.Course.Title.Contains(query.Title));
-
-            if (query.IsCompleted.HasValue)
             {
-                students = query.IsCompleted.Value
-                    ? students.Where(s => s.Status == "Completed")
-                    : students.Where(s => s.Status != "Completed");
+                var courseIdsFiltered = myCourses
+                    .Where(c => c.Title.Contains(query.Title))
+                    .Select(c => c.CourseId)
+                    .ToList();
+                enrollments = enrollments.Where(e => courseIdsFiltered.Contains(e.CourseId));
             }
 
-            // Pagination
-            // Phân trang (limit fix cứng = 4)
-            const int limit = 4;  // fix cứng 4 item/trang
-            var totalItems = await students.CountAsync();
-            var totalPages = (int)Math.Ceiling(totalItems / (double)limit);
-
-            var data = await students
+            // Lấy dữ liệu và tính tiến độ
+            var data = await enrollments
                 .OrderByDescending(s => s.EnrollDate)
-                .Skip((query.Page - 1) * limit)
-                .Take(limit)
-                .Select(s => new {
-                    s.EnrollmentId,
-                    s.EnrollDate,
-                    s.Status,
-                    UserFullName = s.User.FullName,
-                    UserEmail = s.User.Email,
+                .Select(s => new
+                {
+                    s.UserId,
+                    FullName = s.User.FullName,
+                    Email = s.User.Email,
                     CourseTitle = s.Course.Title,
-                    IsCompleted = s.Status == "Completed"
+                    EnrollmentDate = s.EnrollDate,
+                    LastActive = s.User.Student.LastActive,
+                    EnrollmentStatus = s.Status,
+                    ProgressPercent = _context.Lessons.Count(l => l.CourseId == s.CourseId) == 0
+                        ? 0
+                        : Math.Round(
+                            (double)s.Progresses.Count(p => p.IsCompleted) /
+                            _context.Lessons.Count(l => l.CourseId == s.CourseId) * 100, 2)
                 })
                 .ToListAsync();
 
-            return Ok(new ResponsePageResult<object>
-            {
-                Data = data,
-                Page = query.Page,
-                TotalItems = totalItems,
-                TotalPages = totalPages
-            });
+
+            return Ok(data);
         }
+
+
 
 
         // Enrollment -> User + Course {id}(kiểm tra đăng ký chưa -> tìm khóa học + học viên )/Lesson/ Progress
-        [HttpGet("api/course/{courseId}/students/Phan_tram_Tien_Do_1_Khoa_Hoc")]
-        public async Task<IActionResult> GetAllStudentsProgressPercent(int courseId)
-        {
-            // Lấy danh sách enrollment của khóa học
-            var enrollments = await _context.Enrollments
-                .Include(e => e.Progresses)
-                .Include(e => e.User)
-                .Where(e => e.CourseId == courseId)
-                .ToListAsync();
+        // Tính phần trăm % Tiến độ của học viên trong 1 khóa học 
+        //[HttpGet("api/course/{courseId}/students/Phan_tram_Tien_Do_1_Khoa_Hoc")]
+        //public async Task<IActionResult> GetAllStudentsProgressPercent(int courseId)
+        //{
+        //    // Lấy danh sách enrollment của khóa học
+        //    var enrollments = await _context.Enrollments
+        //        .Include(e => e.Progresses)
+        //        .Include(e => e.User)
+        //        .Where(e => e.CourseId == courseId)
+        //        .ToListAsync();
 
-            // Tổng số lesson của khóa học
-            var totalLessons = await _context.Lessons
-                .CountAsync(l => l.CourseId == courseId);
+        //    // Tổng số lesson của khóa học
+        //    var totalLessons = await _context.Lessons
+        //        .CountAsync(l => l.CourseId == courseId);
 
-            var result = enrollments.Select(e => new
-            {
-                e.UserId,
-                e.User.FullName,
-                e.User.Email,
-                ProgressPercent = totalLessons == 0 ? 0 :
-                    Math.Round((double)e.Progresses.Count(p => p.IsCompleted) / totalLessons * 100, 2)
-            });
+        //    var result = enrollments.Select(e => new
+        //    {
+        //        e.UserId,
+        //        e.User.FullName,
+        //        e.User.Email,
+        //        ProgressPercent = totalLessons == 0 ? 0 :
+        //            Math.Round((double)e.Progresses.Count(p => p.IsCompleted) / totalLessons * 100, 2)
+        //    });
 
-            return Ok(result);
-        }
+        //    return Ok(result);
+        //}
 
     }
 }

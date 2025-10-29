@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Du_An_Web_Ban_Khoa_Hoc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+28ea154e290b45630f453e0c1637cb18aedec900")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e932fee95f123ff04e47c3b09d7f889d3e9cb73")]
 [assembly: System.Reflection.AssemblyProductAttribute("Du_An_Web_Ban_Khoa_Hoc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Du_An_Web_Ban_Khoa_Hoc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

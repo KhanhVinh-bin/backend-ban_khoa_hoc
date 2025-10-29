@@ -15,9 +15,17 @@
             public string? AvatarUrl { get; set; }
             public DateOnly? DateOfBirth { get; set; }
             public string? Gender { get; set; }
-            public string? Bio { get; set; }
+       
+            // Thêm các social link
+            public string? LinkedInUrl { get; set; }
 
-            // PasswordHash & Status không nên cho update trong API profile
-            // Nếu cần đổi mật khẩu → tạo API riêng
-        }
+            public string? FacebookUrl { get; set; }
+
+            public string? YouTubeUrl { get; set; }
+
+            public string? Xurl { get; set; }
+
+        // PasswordHash & Status không nên cho update trong API profile
+        // Nếu cần đổi mật khẩu → tạo API riêng
+    }
  }

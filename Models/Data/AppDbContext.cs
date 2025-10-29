@@ -84,7 +84,7 @@ public partial class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=LAPTOP-P8QUBTI5\\SQLEXPRESS;Database=Du_An_Web_Ban_Khoa_hoc ;Trusted_Connection=True;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-BNRH4C1\\SQLEXPRESS;Database=Du_An_Web_Ban_Khoa_hoc ;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -757,10 +757,13 @@ public partial class AppDbContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
+            // Khai báo khóa chính (primary key)
             entity.HasKey(e => e.UserId).HasName("PK__Users__1788CCACC767A2B3");
 
+            // Index cho Email (dùng để tìm nhanh)
             entity.HasIndex(e => e.Email, "IX_Users_Email");
 
+            // Unique Index cho Email (không cho trùng Email)
             entity.HasIndex(e => e.Email, "UQ__Users__A9D10534C8EC976A").IsUnique();
 
             entity.Property(e => e.UserId).HasColumnName("UserID");

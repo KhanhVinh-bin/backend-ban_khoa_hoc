@@ -4,7 +4,7 @@
     {
         public IEnumerable<T> Data { get; set; } = new List<T>();
         public int Page { get; set; }
-        public int Limit { get; set; }
+        public int Limit { get; set; } = 4;
         public int TotalItems { get; set; }
         public int TotalPages { get; set; }
     }
